@@ -29,34 +29,15 @@ public boolean palindrome(String word)
    
 }
 
-public String noSpaces(String word)
+public boolean palindrome(String word)
 {
-  String s = new String();
-  for( int i = 0 ; i < word.length(); i++)
-   if(!word.substring(i,i+1).equals(" "))
-    s = s + word.substring(i,i+1);
-   return s;
-}
-
-public int numLetters(String word)
-{
-  int s =0;
-  for(int i = 0; i < word.length(); i++)
+  //your code here
+  word=word.replaceAll("[^a-zA-Z]", "").toLowerCase();
+  String reversed=new String();
+  for(int i=word.length()-1;i>=0;i--)
   {
-  if(Character.isLetter(word.charAt(i)) == true)
-  {
-   s = s + 1;
+    reversed=reversed+word.charAt(i);
   }
-  if(Character.isLetter(word.charAt(i)) == false)
-  s = s + 0;
-  }
-  return s;
+  if(word.equals(reversed)) {return true;}
+  return false;
 }
-
- public String noCapitals(String word)
- {
-  String s = new String();
-  s = s + word.toLowerCase();
-  return s;
- }
-
